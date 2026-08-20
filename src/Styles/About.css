@@ -1,0 +1,73 @@
+.about {
+  min-height: calc(100vh - 76px);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 50px 20px;
+  background: linear-gradient(135deg, #4b6cb7, #182848);
+  color: #fff;
+}
+
+.about-card {
+  max-width: 700px;
+  width: 100%;
+  background: rgba(255, 255, 255, 0.12);
+  backdrop-filter: blur(12px);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  border-radius: 18px;
+  padding: 40px;
+  box-shadow: 0 8px 30px rgba(0, 0, 0, 0.3);
+  text-align: center;
+}
+
+.about-card h1 {
+  margin-bottom: 16px;
+  font-weight: 600;
+}
+
+.about-card > p {
+  opacity: 0.9;
+  line-height: 1.6;
+  margin-bottom: 30px;
+}
+
+.tech-stack {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 18px;
+}
+
+.tech-item {
+  background: rgba(255, 255, 255, 0.08);
+  border-radius: 12px;
+  padding: 18px;
+  transition: transform 0.25s ease, background 0.25s ease;
+}
+
+.tech-item:hover {
+  transform: translateY(-4px);
+  background: rgba(255, 255, 255, 0.15);
+}
+
+.tech-icon {
+  font-size: 1.6rem;
+  display: block;
+  margin-bottom: 8px;
+}
+
+.tech-item h3 {
+  margin-bottom: 6px;
+  font-weight: 600;
+}
+
+.tech-item p {
+  font-size: 0.85rem;
+  opacity: 0.85;
+  line-height: 1.4;
+}
+
+@media (max-width: 500px) {
+  .tech-stack {
+    grid-template-columns: 1fr;
+  }
+}

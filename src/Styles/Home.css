@@ -1,0 +1,166 @@
+.home {
+  min-height: calc(100vh - 76px);
+  padding: 50px 20px;
+  text-align: center;
+  color: #fff;
+  transition: background 0.8s ease;
+  background: linear-gradient(135deg, #4b6cb7, #182848); /* default */
+  position: relative;
+  overflow: hidden;
+}
+
+.home h1 {
+  font-weight: 600;
+  margin-bottom: 10px;
+  text-shadow: 0 2px 6px rgba(0, 0, 0, 0.3);
+}
+
+.controls {
+  margin: 18px 0;
+}
+
+select {
+  padding: 10px 14px;
+  margin-left: 10px;
+  border: none;
+  border-radius: 8px;
+  background: rgba(255, 255, 255, 0.15);
+  color: #fff;
+  backdrop-filter: blur(6px);
+  cursor: pointer;
+}
+
+select option {
+  color: #1e293b;
+}
+
+button {
+  padding: 10px 20px;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  background: rgba(255, 255, 255, 0.2);
+  color: #fff;
+  font-weight: 600;
+  backdrop-filter: blur(6px);
+  transition: transform 0.2s ease, background 0.3s ease;
+}
+
+button:hover {
+  background: rgba(255, 255, 255, 0.35);
+  transform: translateY(-2px);
+}
+
+.weather-card {
+  width: 300px;
+  margin: 30px auto 0;
+  padding: 25px;
+  border-radius: 16px;
+  background: rgba(255, 255, 255, 0.15);
+  backdrop-filter: blur(12px);
+  border: 1px solid rgba(255, 255, 255, 0.25);
+  box-shadow: 0 8px 30px rgba(0, 0, 0, 0.3);
+  position: relative;
+  z-index: 2;
+}
+
+.weather-card h2 {
+  margin-bottom: 8px;
+  font-weight: 600;
+}
+
+.weather-card h3 {
+  font-size: 2.2rem;
+  font-weight: 700;
+  margin-bottom: 10px;
+}
+
+.weather-card p {
+  margin: 4px 0;
+  opacity: 0.9;
+}
+
+/* ---------- Weather-condition themes ---------- */
+
+.home.clear {
+  background: linear-gradient(135deg, #ff9966, #ff5e62, #f9d423);
+}
+
+.home.clouds {
+  background: linear-gradient(135deg, #757f9a, #d7dde8);
+}
+
+.home.rain,
+.home.drizzle {
+  background: linear-gradient(135deg, #1f2937, #374151, #4b6584);
+}
+
+.home.thunderstorm {
+  background: linear-gradient(135deg, #0f172a, #1e293b);
+  animation: flash 6s infinite;
+}
+
+.home.snow {
+  background: linear-gradient(135deg, #e0eafc, #cfdef3);
+  color: #1e293b;
+}
+
+.home.snow .weather-card {
+  background: rgba(30, 41, 59, 0.08);
+  border: 1px solid rgba(30, 41, 59, 0.15);
+  color: #1e293b;
+}
+
+.home.mist,
+.home.fog,
+.home.haze {
+  background: linear-gradient(135deg, #bdc3c7, #8f9aa5);
+}
+
+/* subtle rain animation */
+.home.rain::before,
+.home.drizzle::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background-image: repeating-linear-gradient(
+    115deg,
+    rgba(255, 255, 255, 0.25) 0px,
+    rgba(255, 255, 255, 0.25) 1px,
+    transparent 1px,
+    transparent 12px
+  );
+  animation: rainMove 0.4s linear infinite;
+  z-index: 1;
+}
+
+@keyframes rainMove {
+  from { background-position: 0 0; }
+  to { background-position: -20px 40px; }
+}
+
+/* thunderstorm flash */
+@keyframes flash {
+  0%, 92%, 100% { filter: brightness(1); }
+  94% { filter: brightness(1.6); }
+  96% { filter: brightness(1); }
+}
+
+/* gentle snow drift */
+.home.snow::before {
+  content: "❄ ❄ ❄ ❄ ❄ ❄ ❄ ❄";
+  position: absolute;
+  top: -20px;
+  left: 0;
+  width: 100%;
+  font-size: 1.4rem;
+  opacity: 0.5;
+  letter-spacing: 40px;
+  animation: snowFall 8s linear infinite;
+  z-index: 1;
+}
+
+@keyframes snowFall {
+  from { transform: translateY(-20px); }
+  to { transform: translateY(100vh); }
+}
